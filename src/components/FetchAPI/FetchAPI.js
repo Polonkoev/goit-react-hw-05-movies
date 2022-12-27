@@ -34,4 +34,15 @@ export async function findMovieById (movie_id){
     },
   })
   return response.data
+}
+  
+  export async function findMovieCredits (movie_id){
+    const response = await axios(`https://api.themoviedb.org/3/movie/${movie_id}/credits`, {
+      params: {
+        
+        api_key: API_KEY,
+        
+      },
+    })
+    return response.data.cast
   }

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import { findMovieById } from '../components/FetchAPI/FetchAPI';
+import { MovieCredits } from './MovieCredits';
 
-export const SubPage = () => {
+export const MovieDetails = () => {
   const [event, setEvent] = useState(null);
   
   const { movieID } = useParams();
@@ -12,7 +13,7 @@ export const SubPage = () => {
     
   }, [movieID]);
 
-//   const {original_title, overview, genres, poster_path} = event
+
 
   return (
     
@@ -21,7 +22,8 @@ export const SubPage = () => {
     {event !== null && 
      
       <>
-      <img src={`https://image.tmdb.org/t/p/w500${event.poster_path}`} alt="" />
+      <button>Go back</button>
+      <img src={`https://image.tmdb.org/t/p/w300${event.poster_path}`} alt="" />
       <h2>{event.original_title}</h2>
       <h3>Overview:</h3>
       <p>{event.overview}</p>
@@ -31,10 +33,14 @@ export const SubPage = () => {
             <li key={id}>{name}</li>
         ))}
       </ul>
+
+      <Link to='cast'>Cast</Link>
+      <Outlet/>
+      
       </>
 }
     
-    
+
     
     </>
   )

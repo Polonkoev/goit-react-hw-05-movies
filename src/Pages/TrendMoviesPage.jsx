@@ -8,15 +8,19 @@ export const TrendMoviesPage = () => {
     fetchMovieTrending().then(setTrending);
   }, []);
 
-  return (
+  return (<>
+    <h2>Most Popular Movies</h2>
     <ul>
       {trending.map(({ id, title }) => {
         return (
+          
           <li key={id}>
             <Link to={`movies/${id}`}>{title}</Link>
           </li>
+          
         );
       })}
     </ul>
+    </>
   );
 };
