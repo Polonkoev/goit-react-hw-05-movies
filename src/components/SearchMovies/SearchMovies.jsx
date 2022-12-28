@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Outlet, useLocation } from 'react-router-dom';
 import { findMovieByName } from '../FetchAPI/FetchAPI';
-import { Link } from 'react-router-dom';
+
+import { SearchList, SearchListLink, Form, Button} from './SearchMovies.styled';
 
 export const SearchMovies = () => {
   const [value, setValue] = useState(null);
@@ -30,28 +31,28 @@ export const SearchMovies = () => {
 
   return (
     <>
-      <form onSubmit={submitHandler}>
+      <Form onSubmit={submitHandler}>
         <input
           type="text"
           name="inputValue"
           placeholder="Enter movie name..."
         />
 
-        <button>Search</button>
-      </form>
+        <Button>Search</Button>
+      </Form>
 
       {value !== null && (
-        <ul>
+        <SearchList>
           {value.map(({ id, title }) => {
             return (
               <li key={id}>
-                <Link to={`${id}`} state={{ from: location }}>
+                <SearchListLink to={`${id}`} state={{ from: location }}>
                   {title}
-                </Link>
+                </SearchListLink>
               </li>
             );
           })}
-        </ul>
+        </SearchList>
       )}
       <Outlet />
     </>

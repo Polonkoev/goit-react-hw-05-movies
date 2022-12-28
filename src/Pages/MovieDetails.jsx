@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { findMovieById } from '../components/FetchAPI/FetchAPI';
-import { Title, OverviewTitle, OverviewDesc, Genres, List, ListItem, A, Image, Button} from './pages.styled';
+import { Title, OverviewTitle, OverviewDesc, Genres, List, ListItem, A, Image, Button, StyledLoader} from './pages.styled';
+import { Suspense } from 'react';
 
 
-
-
-export const MovieDetails = () => {
+  const MovieDetails = () => {
   const [event, setEvent] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,8 +42,9 @@ export const MovieDetails = () => {
 
       <A to='cast' >Cast</A>
       <A to='reviews'>Reviews</A>
+      <Suspense fallback={<h3>Loading...</h3>}>
       <Outlet/>
-      
+      </Suspense>
       </>
 }
     
@@ -53,3 +53,4 @@ export const MovieDetails = () => {
     </>
   )
 }
+export default MovieDetails
