@@ -1,17 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Outlet, useParams } from 'react-router-dom';
+import { useSearchParams, Outlet, useLocation } from 'react-router-dom';
 import { findMovieByName } from '../FetchAPI/FetchAPI';
 import { Link } from 'react-router-dom';
-
 
 export const SearchMovies = () => {
   const [value, setValue] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
-const {movieID} = useParams()
-
-  
+  const location = useLocation();
 
   useEffect(() => {
     if (query === '' || query === null) return;
@@ -33,7 +30,7 @@ const {movieID} = useParams()
 
   return (
     <>
-    <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}>
         <input
           type="text"
           name="inputValue"
@@ -41,23 +38,22 @@ const {movieID} = useParams()
         />
 
         <button>Search</button>
-      </form> 
-      
-     
-      
-      {value !== null  && (
+      </form>
+
+      {value !== null && (
         <ul>
           {value.map(({ id, title }) => {
-            
             return (
               <li key={id}>
-                <Link to={`${id}`}>{title}</Link>
+                <Link to={`${id}`} state={{ from: location }}>
+                  {title}
+                </Link>
               </li>
             );
           })}
         </ul>
       )}
-       <Outlet />
+      <Outlet />
     </>
   );
 };

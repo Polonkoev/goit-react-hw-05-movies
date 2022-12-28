@@ -1,19 +1,16 @@
-import axios from 'axios';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './Home/Home';
 
 import { Layout } from './Layout/Layout';
 import { Movies } from './Movies/Movies';
-import { SearchMovies } from './SearchMovies/SearchMovies';
+
 import { MovieDetails } from 'Pages/MovieDetails';
 
-import { TrendMoviesPage } from '../Pages/TrendMoviesPage';
 import { MovieCredits } from 'Pages/MovieCredits';
+import { MovieReviews } from 'Pages/MovieReviews';
 
 export const App = () => {
-  // async function fetchMovie(){
-  //   axios(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
-  // }
+ 
 
   return (
     <Routes>
@@ -21,12 +18,12 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />}>
           <Route path=":movieID" element={<MovieDetails />}>
-          <Route path='/movies/:movieID/cast' element={<MovieCredits/>}/>
+            <Route path="/movies/:movieID/cast" element={<MovieCredits />} />
+            <Route path="/movies/:movieID/reviews" element={<MovieReviews />} />
           </Route>
-        
         </Route>
       </Route>
-      <Route path="*" element={<Home/>}/>
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 };
@@ -39,5 +36,5 @@ export const App = () => {
 
 //         </Route>
 
-//         
+//
 //       </Route>

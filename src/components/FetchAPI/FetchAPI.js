@@ -46,3 +46,14 @@ export async function findMovieById (movie_id){
     })
     return response.data.cast
   }
+  export async function findMovieReviews (movie_id){
+    const response = await axios(`https://api.themoviedb.org/3/movie/${movie_id}/reviews`, {
+      params: {
+        
+        api_key: API_KEY,
+        
+      },
+    })
+    return response.data.results
+  }
+
