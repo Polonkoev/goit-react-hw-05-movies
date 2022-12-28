@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { findMovieById } from '../components/FetchAPI/FetchAPI';
-import { Title, OverviewTitle, OverviewDesc, Genres, List, ListItem, A, Image, Button, StyledLoader} from './pages.styled';
+import { Title, OverviewTitle, OverviewDesc, Genres, List, ListItem, A, Image, Button} from './pages.styled';
 import { Suspense } from 'react';
 
 
