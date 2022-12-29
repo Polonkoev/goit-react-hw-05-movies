@@ -3,7 +3,7 @@ import {  useLocation } from 'react-router-dom';
 import { fetchMovieTrending } from 'components/FetchAPI/FetchAPI';
 import { TrandTitle, TrandsList, TrandsListLink} from './pages.styled';
 
-const TrendMoviesPage = () => {
+export default function TrendMoviesPage() {
   const [trending, setTrending] = useState([]);
   const location = useLocation()
   // console.log(location);
@@ -28,4 +28,3 @@ const TrendMoviesPage = () => {
   );
 };
 
-export default TrendMoviesPage
