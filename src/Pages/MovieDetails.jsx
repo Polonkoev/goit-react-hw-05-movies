@@ -17,13 +17,15 @@ import { Suspense } from 'react';
     
   }, [movieID]);
 
-
+if(!event){
+  return
+}
 
   return (
     
-    <>
     
-    {event !== null && 
+    
+    
      
       <>
       <Button onClick={() => {
@@ -46,11 +48,11 @@ import { Suspense } from 'react';
       <Outlet/>
       </Suspense>
       </>
-}
+
     
 
     
-    </>
+    
   )
 }
 export default MovieDetails
