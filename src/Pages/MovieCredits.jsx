@@ -9,10 +9,7 @@ export default function MovieCredits(){
   const { movieID } = useParams();
 
   useEffect(() => {
-    async function getCredits() {
-      await findMovieCredits(movieID).then(setCast);
-    }
-    getCredits();
+    findMovieCredits(movieID).then(setCast);
   }, [movieID]);
 
   return (
