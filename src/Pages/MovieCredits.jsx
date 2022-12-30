@@ -4,7 +4,7 @@ import { findMovieCredits } from 'components/FetchAPI/FetchAPI';
 import {CastList} from './pages.styled';
 
 
-const MovieCredits = () => {
+export default function MovieCredits(){
   const [cast, setCast] = useState([]);
   const { movieID } = useParams();
 
@@ -39,4 +39,4 @@ const MovieCredits = () => {
   );
 };
 
-export default MovieCredits
+// export default MovieCredits

@@ -5,7 +5,7 @@ import { Title, OverviewTitle, OverviewDesc, Genres, List, ListItem, A, Image, B
 import { Suspense } from 'react';
 
 
-  const MovieDetails = () => {
+export default function MovieDetails(){
   const [event, setEvent] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -55,4 +55,4 @@ if(!event){
     
   )
 }
-export default MovieDetails
+// export default MovieDetails
