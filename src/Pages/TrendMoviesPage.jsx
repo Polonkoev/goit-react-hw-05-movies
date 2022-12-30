@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react';
-import {  useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetchMovieTrending } from 'components/FetchAPI/FetchAPI';
-import { TrandTitle, TrandsList, TrandsListLink} from './pages.styled';
+import { TrandTitle, TrandsList, TrandsListLink } from './pages.styled';
 
 export default function TrendMoviesPage() {
   const [trending, setTrending] = useState([]);
-  const location = useLocation()
-  // console.log(location);
+  const location = useLocation();
+
   useEffect(() => {
     fetchMovieTrending().then(setTrending);
   }, []);
 
-  return (<>
-    <TrandTitle>Most Popular Movies</TrandTitle>
-    <TrandsList>
-      {trending.map(({ id, title }) => {
-        return (
-          
-          <li key={id}>
-            <TrandsListLink to={`movies/${id}`} state={{ from: location }}>{title}</TrandsListLink>
-          </li>
-          
-        );
-      })}
-    </TrandsList>
+  return (
+    <>
+      <TrandTitle>Most Popular Movies</TrandTitle>
+      <TrandsList>
+        {trending.map(({ id, title }) => {
+          return (
+            <li key={id}>
+              <TrandsListLink to={`movies/${id}`} state={{ from: location }}>
+                {title}
+              </TrandsListLink>
+            </li>
+          );
+        })}
+      </TrandsList>
     </>
   );
-};
-
+}

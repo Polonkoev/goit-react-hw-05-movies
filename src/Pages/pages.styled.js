@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Triangle } from 'react-loader-spinner';
 
 //HomePage
 
@@ -85,38 +86,34 @@ export const A = styled(Link)`
 `;
 
 export const Button = styled.button`
-margin-left: 20px;
-color: #024024;
-background-color: #1bde87;
+  margin-left: 20px;
+  color: #024024;
+  background-color: #1bde87;
 
-border: 2px solid #5cabc1;
-border-radius: 4px;
-cursor: pointer;
-&:hover{
-background-color: #a41bde;
-}
+  border: 2px solid #5cabc1;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: #a41bde;
+  }
 `;
-
 
 // MovieCredits
 
 export const CastList = styled.ul`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-list-style: none;
-
+  list-style: none;
 `;
 
 // MovieReviews
 
 export const ReviewsList = styled.ul`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-list-style: none;
-
+  list-style: none;
 `;
-

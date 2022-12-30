@@ -1,7 +1,9 @@
 import { findMovieReviews } from 'components/FetchAPI/FetchAPI';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { ReviewsList } from './pages.styled';
+
+
 
 const MovieReviews = () => {
   const [review, setReview] = useState([]);
@@ -10,22 +12,24 @@ const MovieReviews = () => {
 
   useEffect(() => {
     findMovieReviews(movieID).then(setReview);
-  
   }, [movieID]);
 
   return (
-    <ReviewsList>
-      {review.map(({ id, author_details, content }) => {
-        return (
-          <li key={id}>
-            <h3>Author: {author_details.username}</h3>
-            <p>{content}</p>
-          </li>
-        );
-      })}
-    </ReviewsList>
+    <>
+      
+        <ReviewsList>
+          {review.map(({ id, author_details, content }) => {
+            return (
+              <li key={id}>
+                <h3>Author: {author_details.username}</h3>
+                <p>{content}</p>
+              </li>
+            );
+          })}
+        </ReviewsList>
+      
+    </>
   );
 };
 
-
-export default MovieReviews
+export default MovieReviews;

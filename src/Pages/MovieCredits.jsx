@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { findMovieCredits } from 'components/FetchAPI/FetchAPI';
-import {CastList} from './pages.styled';
+import { CastList } from './pages.styled';
 
-
-export default function MovieCredits(){
+export default function MovieCredits() {
   const [cast, setCast] = useState([]);
   const { movieID } = useParams();
 
@@ -14,26 +13,20 @@ export default function MovieCredits(){
 
   return (
     <>
-
       <CastList>
         {cast.map(({ id, name, character, profile_path }) => {
           return (
-            
-              <li key={id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-                  alt=""
-                />
-                <h3>{name}</h3>
-                <p>{character}</p>
-              </li>
-           
+            <li key={id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                alt=""
+              />
+              <h3>{name}</h3>
+              <p>{character}</p>
+            </li>
           );
         })}
       </CastList>
-     
     </>
   );
-};
-
-// export default MovieCredits
+}

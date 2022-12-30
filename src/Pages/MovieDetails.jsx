@@ -13,8 +13,6 @@ import {
   Button,
 } from './pages.styled';
 
-import { Suspense } from 'react';
-
 export default function MovieDetails() {
   const [event, setEvent] = useState(null);
   const navigate = useNavigate();
@@ -39,7 +37,7 @@ export default function MovieDetails() {
       >
         Go back
       </Button>
-      
+
       <Image
         src={`https://image.tmdb.org/t/p/w300${event.poster_path}`}
         alt=""
@@ -53,13 +51,10 @@ export default function MovieDetails() {
           <ListItem key={id}>{name}</ListItem>
         ))}
       </List>
-      <Suspense fallback={<h3>Loading...</h3>}>
       <A to="cast">Cast</A>
       <A to="reviews">Reviews</A>
-      
-        <Outlet />
-      </Suspense>
+
+      <Outlet />
     </>
   );
 }
-// export default MovieDetails
