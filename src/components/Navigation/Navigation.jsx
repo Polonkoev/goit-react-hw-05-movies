@@ -1,15 +1,19 @@
-import { A } from "./Navigation.styled"
+import { NavLink } from "react-router-dom"
+import {SNavLink, SList, SNav, SH2} from '../Navigation/Navigation.styled.js'
+
 
 export const Navigation = () => {
+   
     return (
         <>
-        <nav>
-            <ul>
-                <li><A to='/' end>Home</A></li>
-                <li><A to='/movies'>Movies</A></li>
-            </ul>
-        </nav>
-        <hr />
+        <SNav>
+            <SList >
+                <li ><SNavLink   to='/' end>Home</SNavLink></li>
+                <li><SNavLink  to='/movies'>Movies</SNavLink></li>
+            </SList>
+            <SH2>Movie Finder </SH2>
+        </SNav>
+        
         </>
     )
 }

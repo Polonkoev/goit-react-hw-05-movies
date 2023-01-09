@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Outlet, useLocation } from 'react-router-dom';
-import { findMovieByName } from '../components/FetchAPI/FetchAPI';
+import { findMovieByName } from '../../components/FetchAPI/FetchAPI';
 
 import {
   SearchList,
   SearchListLink,
   Form,
   Button,
-} from './SearchMovies.styled';
+} from '../SearchMovies.styled';
 
 export default function Movies() {
   const [value, setValue] = useState(null);

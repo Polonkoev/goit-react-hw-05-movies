@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { findMovieById } from '../components/FetchAPI/FetchAPI';
+import { findMovieById } from '../../components/FetchAPI/FetchAPI';
 import {
   Title,
   OverviewTitle,
@@ -11,7 +11,7 @@ import {
   A,
   Image,
   Button,
-} from './pages.styled';
+} from '../pages.styled';
 
 export default function MovieDetails() {
   const [event, setEvent] = useState(null);

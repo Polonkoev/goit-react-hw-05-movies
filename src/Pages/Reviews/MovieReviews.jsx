@@ -1,7 +1,7 @@
 import { findMovieReviews } from 'components/FetchAPI/FetchAPI';
 import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import { ReviewsList } from './pages.styled';
+import { ReviewsList } from '../pages.styled';
 
 
 

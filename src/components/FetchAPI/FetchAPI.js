@@ -25,6 +25,9 @@ export async function findMovieByName(keyword) {
   return response.data.results;
 }
 
+
+
+
 export async function findMovieById(movie_id) {
   const response = await axios(
     `https://api.themoviedb.org/3/movie/${movie_id}`,

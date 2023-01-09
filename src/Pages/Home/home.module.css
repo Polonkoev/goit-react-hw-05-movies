@@ -1,0 +1,44 @@
+.Title{
+    display: flex;
+    justify-content: center;
+    color: #60c15c;
+    font-size: 25px;
+    margin-top: 80px;
+    
+}
+
+.List{
+    display: grid;
+      
+      grid-template-columns: repeat(4, 300px);
+     
+    gap: 25px 25px;
+    justify-content:center;
+    list-style: none;
+}
+.ListItem{
+    /* padding: 10px; */
+    
+}
+
+.Image{
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1); /* Черно-белый фильтр для изображения */
+    transition: 1s; /* Время изменения цвета изображения */
+    
+    
+}
+.Image:hover{
+    filter: grayscale(0);
+    transform: scale(1.1);
+    
+}
+.Link{
+
+}
+.ListItemWrapper{
+   width: 310px;
+   border: 4px;
+}

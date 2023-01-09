@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { findMovieCredits } from 'components/FetchAPI/FetchAPI';
-import { CastList } from './pages.styled';
+import { CastList } from '../pages.styled';
 
 export default function MovieCredits() {
   const [cast, setCast] = useState([]);
